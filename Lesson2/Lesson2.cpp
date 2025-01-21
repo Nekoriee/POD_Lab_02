@@ -2,8 +2,8 @@
 #include <immintrin.h>
 #include <thread>
 // cols = rows = 0 (mod 8)
-#define Cols 16
-#define Rows 16
+#define Cols 256
+#define Rows 256
 
 void add_matrix(double* A, const double* B, const double* C, size_t cols, size_t rows) {
     for (size_t i = 0; i < rows; i++) {
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     double* C = (double*)malloc(Cols * Rows * sizeof(double));
     for (size_t i = 0; i < Rows * Cols; ++i)
         B[i] = -(C[i] = i);
-    for (size_t i = 0; i < 1 + 1; i++) {
+    for (size_t i = 0; i < 2; i++) {
         std::cout << "Thread num: " << i << "\n";
         for (size_t j = 0; j < 20; j++) {
             if (i > 0) {
